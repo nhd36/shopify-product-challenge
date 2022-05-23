@@ -1,8 +1,8 @@
 # Shopify Backend Challenge
 
 > Replit Link: 
->   Backend API: https://shopify-product-challenge.nhd36.repl.co
->   Frontend: 
+> -   Backend API: https://shopify-product-challenge.nhd36.repl.co
+> -   Frontend: https://replit.com/@nhd36/shopify-product-challenge-frontend
 
 ## 1. Introduction
 - --
