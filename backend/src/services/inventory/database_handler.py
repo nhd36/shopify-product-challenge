@@ -1,73 +1,60 @@
-from src.database import models
-from src import utils
+from src.services.inventory.interface import DatabaseInterface
+from src.database.interface import InventoryModelInterface
 
 
-class DatabaseHandler:
-    @classmethod
-    def list_inventories(cls, data):
-        paging_data, inventories = models.Inventory.list_inventories_with_paging(
+class DatabaseHandler(DatabaseInterface):
+    def __init__(self, database_model: InventoryModelInterface):
+        self.database_model = database_model
+
+    def list_inventories(self, data):
+        inventories, paging_data = self.database_model.list_inventories_with_paging(
             page=data["offset"],
             items_per_page=data["no_items"]
         )
         result = list()
         for inventory in inventories:
-            result.append(utils.serialize_inventory(inventory))
-        paging = {
-            "items_per_page": paging_data.per_page,
-            "page": paging_data.page,
-            "total": paging_data.pages
-        }
-        return result, paging
+            result.append(inventory.deserialize())
+        return result, paging_data
 
-    @classmethod
-    def list_deleted_inventories(cls, data):
-        paging_data, del_inventories = models.Inventory.list_deleted_inventories_with_paging(
+    def list_deleted_inventories(self, data):
+        del_inventories, paging = self.database_model.list_deleted_inventories_with_paging(
             page=data["offset"],
             items_per_page=data["no_items"]
         )
         result = list()
         for inventory in del_inventories:
-            result.append(utils.serialize_inventory(inventory))
-        paging = {
-            "items_per_page": paging_data.per_page,
-            "page": paging_data.page,
-            "total": paging_data.pages
-        }
+            result.append(inventory.deserialize())
         return result, paging
 
-    @classmethod
-    def create_inventory(cls, data):
-        inventory = models.Inventory(data["name"], data["amount"])
-        return inventory.create_inventory()
+    def create_inventory(self, data):
+        inventory = self.database_model.create_inventory(data)
+        if not inventory:
+            return None
+        return inventory.deserialize()
 
-    @classmethod
-    def get_inventory(cls, inventory_id):
-        data = models.Inventory.get_inventory_by_id(inventory_id)
+    def get_inventory(self, inventory_id):
+        data = self.database_model.get_inventory_by_id(inventory_id)
         if data:
             if not data.deleted_at:
-                data = utils.serialize_inventory(data)
+                data = data.deserialize()
             else:
                 return None
         return data
 
-    @classmethod
-    def update_inventory(cls, inventory_id, data):
-        return models.Inventory.update_inventory_by_id(inventory_id, data)
+    def update_inventory(self, inventory_id, data):
+        return self.database_model.update_inventory_by_id(inventory_id, data)
 
-    @classmethod
-    def delete_inventory(cls, inventory_id):
-        return models.Inventory.delete_inventory_by_id(inventory_id)
+    def delete_inventory(self, inventory_id):
+        return self.database_model.delete_inventory_by_id(inventory_id)
 
-    @classmethod
-    def undelete_inventory(cls, inventory_id):
+    def undelete_inventory(self, inventory_id):
         update = {
             "deleted_at": None
         }
-        return models.Inventory.update_inventory_by_id(inventory_id, update)
+        return self.database_model.update_inventory_by_id(inventory_id, update)
 
-    @classmethod
-    def get_deleted_inventory(cls, inventory_id):
-        data = models.Inventory.get_inventory_by_id(inventory_id)
+    def get_deleted_inventory(self, inventory_id):
+        data = self.database_model.get_inventory_by_id(inventory_id)
         if not data:
             return None
         elif not data.deleted_at:

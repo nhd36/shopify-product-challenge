@@ -3,21 +3,25 @@ import http
 from flask import Blueprint, request, send_file
 from flask_cors import cross_origin
 from src.config.config import Config
+from src.database import models
+from src.services.inventory.database_handler import DatabaseHandler
 
 from .logic_handler import LogicHandler
 
 inventory_service = Blueprint("inventory_blueprint", __name__, url_prefix="/inventory")
+database_handler = DatabaseHandler(models.Inventory)
+logic_handler = LogicHandler(database_handler)
 
 
 @inventory_service.route("", methods=["GET", "POST"])
 @cross_origin(headers=["Content-Type", "Authorization"])
 def list_create_inventories():
     if request.method == "GET":
-        response = LogicHandler.list_inventories(request)
+        response = logic_handler.list_inventories(request)
         return response.format(), response.status_code
 
     if request.method == "POST":
-        response = LogicHandler.create_inventory(request)
+        response = logic_handler.create_inventory(request)
         return response.format(), response.status_code
 
 
@@ -25,15 +29,15 @@ def list_create_inventories():
 @cross_origin(headers=["Content-Type", "Authorization"])
 def rud_inventory(inventory_id):
     if request.method == "GET":
-        response = LogicHandler.get_inventory(request)
+        response = logic_handler.get_inventory(request)
         return response.format(), response.status_code
 
     if request.method == "PUT":
-        response = LogicHandler.update_inventory(request)
+        response = logic_handler.update_inventory(request)
         return response.format(), response.status_code
 
     if request.method == "DELETE":
-        response = LogicHandler.delete_inventory(request)
+        response = logic_handler.delete_inventory(request)
         return response.format(), response.status_code
 
 
@@ -41,12 +45,12 @@ def rud_inventory(inventory_id):
 @cross_origin(headers=["Content-Type", "Authorization"])
 def handle_image(inventory_id):
     if request.method == "GET":
-        data = LogicHandler.get_image_inventory(request)
+        data = logic_handler.get_image_inventory(request)
         if data:
             return send_file(f"{Config.static_folder}/{data}.png"), http.HTTPStatus.OK.real
         return "No image exists", http.HTTPStatus.NOT_FOUND.real
     if request.method == "PUT":
-        response = LogicHandler.upload_image_inventory(request)
+        response = logic_handler.upload_image_inventory(request)
         return response.format(), response.status_code
 
 
@@ -54,7 +58,7 @@ def handle_image(inventory_id):
 @cross_origin(headers=["Content-Type", "Authorization"])
 def list_deleted_inventories():
     if request.method == "GET":
-        response = LogicHandler.list_deleted_inventories(request)
+        response = logic_handler.list_deleted_inventories(request)
         return response.format(), response.status_code
 
 
@@ -62,5 +66,5 @@ def list_deleted_inventories():
 @cross_origin(headers=["Content-Type", "Authorization"])
 def undelete_inventory(inventory_id):
     if request.method == "PUT":
-        response = LogicHandler.undelete_inventory(request)
+        response = logic_handler.undelete_inventory(request)
         return response.format(), response.status_code

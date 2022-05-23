@@ -1,4 +1,5 @@
 import datetime
+
 from flask_sqlalchemy import SQLAlchemy
 from src import utils
 
@@ -23,14 +24,16 @@ class Inventory(db.Model):
         self.name = name
         self.amount = amount
 
-    def create_inventory(self):
+    @classmethod
+    def create_inventory(cls, data):
+        inventory = Inventory(data["name"], data["amount"])
         try:
-            db.session.add(self)
+            db.session.add(inventory)
             db.session.commit()
         except Exception as ex:
             print(ex)
-            return False
-        return True
+            return None
+        return inventory
 
     @classmethod
     def get_inventory_by_id(cls, inventory_id: str):
@@ -48,7 +51,7 @@ class Inventory(db.Model):
         return data
 
     @classmethod
-    def list_condition_inventories_with_paging(cls, page=1, items_per_page=10, deleted=False):
+    def __list_condition_inventories_with_paging(cls, page=1, items_per_page=10, deleted=False):
         if not deleted:
             data = cls.query.filter_by(
                 deleted_at=None
@@ -62,15 +65,20 @@ class Inventory(db.Model):
             items_per_page,
             False
         )
-        return paging_data, paging_data.items
+        paging = {
+            "items_per_page": paging_data.per_page,
+            "page": paging_data.page,
+            "total": paging_data.pages
+        }
+        return paging_data.items, paging
 
     @classmethod
     def list_inventories_with_paging(cls, page=1, items_per_page=10):
-        return cls.list_condition_inventories_with_paging(page, items_per_page, deleted=False)
+        return cls.__list_condition_inventories_with_paging(page, items_per_page, deleted=False)
 
     @classmethod
     def list_deleted_inventories_with_paging(cls, page=1, items_per_page=10):
-        return cls.list_condition_inventories_with_paging(page, items_per_page, deleted=True)
+        return cls.__list_condition_inventories_with_paging(page, items_per_page, deleted=True)
 
     @classmethod
     def update_inventory_by_id(cls, inventory_id: str, update: dict):
@@ -92,6 +100,16 @@ class Inventory(db.Model):
         }
         return cls.update_inventory_by_id(inventory_id, delete)
 
+    def deserialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "amount": self.amount,
+            "has_image": self.has_image,
+            "created_at": self.created_at,
+            "deleted_at": self.deleted_at
+        }
+
 
 class Location(db.Model):
     __tablename__ = "location"
@@ -112,6 +130,15 @@ class Location(db.Model):
         self.address = address
         self.zip_code = zip_code
         self.coordinates = coordinates
+
+    def create_location(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+        except Exception as ex:
+            print(ex)
+            return False
+        return True
 
     @classmethod
     def list_locations_with_paging(cls, page=1, items_per_page=10):
