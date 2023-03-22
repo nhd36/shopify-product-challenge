@@ -1,1 +1,100 @@
-<mxfile host="app.diagrams.net" modified="2023-03-22T21:13:49.658Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 OPR/96.0.0.0" version="21.0.8" etag="6vLoAaeYOR-plCXWSTmi" type="github"><diagram name="Page-1" id="UQUvDR61GDNy-E_RR1lr">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-03-22T21:46:14.126Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 OPR/96.0.0.0" etag="iPuSURzaG6WN4klz2Kwb" version="21.0.8" type="github">
+  <diagram name="Page-1" id="UQUvDR61GDNy-E_RR1lr">
+    <mxGraphModel dx="2284" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tVRZloSp4a5O1fThbntz-1" value="Client" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-530" y="250" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-2" value="- visitors: ArrayList&amp;lt;Visitor&amp;gt;&lt;br&gt;- schoolComponent: SchoolComponent" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-1">
+          <mxGeometry y="26" width="240" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-1">
+          <mxGeometry y="60" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-4" value="+ Client(): void&lt;br&gt;+ addVisitor(Visitor visitor): void&lt;br&gt;+ removeVisitor(Visitor visitor): Visitor&lt;br&gt;+ printSchoolComponentInfo(): void&lt;br&gt;+ calculateTotalSalary(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-1">
+          <mxGeometry y="68" width="240" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-10" value="SchoolComponent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-90" y="360" width="290" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-11" value="# children: ArrayList&amp;lt;SchoolComponent&amp;gt;&lt;br&gt;# name: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-10">
+          <mxGeometry y="26" width="290" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-10">
+          <mxGeometry y="60" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-13" value="+ SchoolComponent(String name)&lt;br&gt;+ addChild(SchoolComponent child): void&lt;br&gt;+ removeChild(SchoolComponent child): void&lt;br&gt;+ getChildren(): ArrayList&amp;lt;SchoolComponent&amp;gt;&lt;br&gt;+ getName(): String&lt;br&gt;+ getType(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-10">
+          <mxGeometry y="68" width="290" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-15" value="UniversityComponent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="640" width="290" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-17" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-15">
+          <mxGeometry y="26" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-18" value="+ execute(): void&lt;br&gt;+ acceptVisitor(Visitor visit): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-15">
+          <mxGeometry y="34" width="290" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-19" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="tVRZloSp4a5O1fThbntz-15" target="tVRZloSp4a5O1fThbntz-13">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="340" y="570" as="sourcePoint" />
+            <mxPoint x="500" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-23" value="UniversityComposite" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-290" y="640" width="290" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-24" value="- children: ArrayList&amp;lt;UniversityComponent&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-23">
+          <mxGeometry y="26" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-25" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-23">
+          <mxGeometry y="50" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-26" value="+ UniversityComposite(String name)&lt;br&gt;+ addChild(UniversityComponent child): void&lt;br&gt;+ removeChild(UniversityComponent child): void&lt;br&gt;+ getChildren(): ArrayList&amp;lt;UniversityComponent&amp;gt;&lt;br&gt;+ getName(): String&lt;br&gt;+ getType(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-23">
+          <mxGeometry y="58" width="290" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-27" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="tVRZloSp4a5O1fThbntz-23" target="tVRZloSp4a5O1fThbntz-13">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-10" y="810" as="sourcePoint" />
+            <mxPoint x="150" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-28" value="CollegeComposite" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-490" y="880" width="290" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-29" value="- children: ArrayList&amp;lt;UniversityComponent&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-28">
+          <mxGeometry y="26" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-30" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-28">
+          <mxGeometry y="50" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-31" value="+ CollegeComponent(String name)&lt;br&gt;+ addChild(UniversityComponent child): void&lt;br&gt;+ removeChild(UniversityComponent&amp;nbsp;child): void&lt;br&gt;+ getChildren(): ArrayList&amp;lt;UniversityComponent&amp;gt;&lt;br&gt;+ getName(): String&lt;br&gt;+ getType(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-28">
+          <mxGeometry y="58" width="290" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-32" value="CollegeComponent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-110" y="880" width="290" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-33" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-32">
+          <mxGeometry y="26" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-34" value="+ execute(): void&lt;br&gt;+ acceptVisitor(Visitor visit): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-32">
+          <mxGeometry y="34" width="290" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-35" value="PersonComponent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-680" y="1120" width="290" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-36" value="- children: ArrayList&amp;lt;SchoolComponent&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-35">
+          <mxGeometry y="26" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-37" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="tVRZloSp4a5O1fThbntz-35">
+          <mxGeometry y="50" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="tVRZloSp4a5O1fThbntz-38" value="+ UniversityComponent(String name)&lt;br&gt;+ addChild(SchoolComponent child): void&lt;br&gt;+ removeChild(SchoolComponent child): void&lt;br&gt;+ getChildren(): ArrayList&amp;lt;SchoolComponent&amp;gt;&lt;br&gt;+ getName(): String&lt;br&gt;+ getType(): String&lt;br&gt;+ getId(): String&lt;br&gt;+ getAddress(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="tVRZloSp4a5O1fThbntz-35">
+          <mxGeometry y="58" width="290" height="132" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
